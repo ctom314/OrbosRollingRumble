@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D playerRigidBody;
     private float inputHorizontal;
     private bool isAlive;
+    private bool inAir;
 
     // For restricting player from going above the screen
     private Vector2 topOfScreen;
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
             movePlayer();
             LimitRollSpeed();
             jump();
+            fallFaster();
         }
 
         RestrictPlayerY();
@@ -83,15 +85,31 @@ public class PlayerController : MonoBehaviour
             // Increment the number of jumps
             numJumps++;
 
+            inAir = true;
+
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void fallFaster()
+    {
+        // If the S key is pressed in air, fall faster
+        if (Input.GetKey(KeyCode.S) && inAir)
+        {
+            playerRigidBody.gravityScale = 3;
+        }
+        else
+        {
+            playerRigidBody.gravityScale = 1;
+        }
+    }
+
+        private void OnCollisionEnter2D(Collision2D collision)
     {
         // If the player collides with the ground, reset the number of jumps
         if (collision.gameObject.CompareTag("Grounded"))
         {
             numJumps = 1;
+            inAir = false;
         }
 
     }

@@ -7,9 +7,7 @@ using UnityEngine.SceneManagement;
 public class Goon_Ground : MonoBehaviour
 {
     private Rigidbody2D gRigidbody;
-    private float direction;
 
-    public Transform player;
     public float rollSpeed;
     public float maxRollSpeed;
 
@@ -25,7 +23,7 @@ public class Goon_Ground : MonoBehaviour
         // Only target player when enemy is on screen
         if (isOnScreen())
         {
-            TargetPlayer();
+            RollLeft();
         }
 
         LimitRollSpeed();
@@ -38,16 +36,10 @@ public class Goon_Ground : MonoBehaviour
         return (screenPos.x > 0 && screenPos.x < 1 && screenPos.y > 0 && screenPos.y < 1);
     }
 
-    private void TargetPlayer()
+    private void RollLeft()
     {
-        if (player != null)
-        {
-            // Get the direction to the player
-            direction = Mathf.Sign(player.position.x - transform.position.x);
-
-            // Roll towards the player
-            gRigidbody.AddTorque((-1 * direction) * rollSpeed);
-        }
+        // Roll left
+        gRigidbody.AddTorque(rollSpeed);
     }
 
     // Same as player, but for enemy

@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private float inputHorizontal;
     private bool isAlive;
     private bool inAir;
+    private float startRollSpeed;
 
     // For restricting player from going above the screen
     private Vector2 topOfScreen;
@@ -33,6 +34,9 @@ public class PlayerController : MonoBehaviour
         // Only allow 1 jump
         maxJumps = 1;
         numJumps = 1;
+
+        // Ensure roll speed is set properly
+        startRollSpeed = rollSpeed;
     }
 
     // Update is called once per frame
@@ -114,12 +118,18 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void ResetSpeed()
+    {
+        rollSpeed = startRollSpeed;
+    }
+
     // Debugging purposes
     private void resetLevel()
     {
         // If the player presses the R key, restart the level
         if (Input.GetKeyDown(KeyCode.R))
         {
+            ResetSpeed();
             SceneManager.LoadScene("MainLevel");
         }
     }

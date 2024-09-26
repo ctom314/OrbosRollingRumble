@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     private bool isPaused = false;
     public GameObject pauseMenu;
     public GameObject pauseMenuTip;
+    public GameObject player;
+    // Need to add reference to Maelstrom when he is created
+
 
     // Update is called once per frame
     void Update()

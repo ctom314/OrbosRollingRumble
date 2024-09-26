@@ -14,25 +14,14 @@ public class GuiButtonHandler : MonoBehaviour
         gm = GetComponent<GameManager>();
     }
 
-    public void loadGame()
-    {
-        // Load the game
-        SceneManager.LoadScene("MainLevel");
-    }
-
     public void resumeGame()
     {
         gm.resumeGame();
     }
 
-    public void quitGame()
+    public void returnToMainMenu()
     {
-        // Only works in a built game
-        Application.Quit();
-    }
-
-    public void displayMenu()
-    {
-
+        // Load the main menu
+        SceneManager.LoadScene("MainMenu");
     }
 }

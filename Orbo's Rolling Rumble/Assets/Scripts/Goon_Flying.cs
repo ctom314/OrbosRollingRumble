@@ -69,4 +69,13 @@ public class Goon_Flying : MonoBehaviour
             }
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // If enemy hits the ground, go up
+        if (collision.gameObject.CompareTag("Grounded"))
+        {
+            moveUp = true;
+        }
+    }
 }

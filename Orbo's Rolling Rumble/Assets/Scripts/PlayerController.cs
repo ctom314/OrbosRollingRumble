@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     private void movePlayer()
     {
         // If the player is not in the air, allow the player to move left/right
-        if (numJumps <= maxJumps)
+        if (!inAir)
         {
             // Get Left/Right input
             inputHorizontal = Input.GetAxis("Horizontal");

@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 8849059187379432915}
   - component: {fileID: 2846049784967985414}
   - component: {fileID: 5022042493951171226}
-  m_Layer: 0
+  - component: {fileID: -3775585383712690403}
+  m_Layer: 11
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -163,3 +164,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rollSpeed: 1
   maxRollSpeed: 5
+--- !u!114 &-3775585383712690403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046479207352469283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9aea90c538befa4cae5319bcab10bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useTrigger: 0

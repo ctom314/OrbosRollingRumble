@@ -1,48 +1,40 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Goon_Ground : MonoBehaviour
+public class MaelstromWheel : MonoBehaviour
 {
     private Rigidbody2D gRigidbody;
+    private float rollSpeed;
+    private float maxRollSpeed;
 
-    public float rollSpeed;
-    public float maxRollSpeed;
+    public Maelstrom maelstrom;
 
     // Start is called before the first frame update
     void Start()
     {
         gRigidbody = GetComponent<Rigidbody2D>();
+
+        // Get values from Maelstrom
+        rollSpeed = maelstrom.rollSpeed;
+        maxRollSpeed = maelstrom.maxRollSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Only target player when enemy is on screen
-        if (isOnScreen())
-        {
-            Roll();
-        }
-
+        // Always roll
+        Roll();
         LimitRollSpeed();
-    }
-
-    private bool isOnScreen()
-    {
-        // Check if the enemy is on the screen
-        Vector2 screenPos = Camera.main.WorldToViewportPoint(transform.position);
-        return (screenPos.x > 0 && screenPos.x < 1 && screenPos.y > 0 && screenPos.y < 1);
     }
 
     private void Roll()
     {
-        // Roll left
-        gRigidbody.AddTorque(rollSpeed);
+        // Roll right
+        gRigidbody.AddTorque(-rollSpeed);
     }
 
-    // Same as player, but for enemy
     private void LimitRollSpeed()
     {
         if (Mathf.Abs(gRigidbody.velocity.x) > maxRollSpeed)

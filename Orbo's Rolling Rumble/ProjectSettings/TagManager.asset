@@ -7,6 +7,7 @@ TagManager:
   - Grounded
   - Enemy
   - ScoreManager
+  - Maelstrom
   layers:
   - Default
   - TransparentFX
@@ -14,12 +15,12 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Wheels
+  - Player
+  - Ground
+  - Maelstrom
+  - Spikes
+  - Enemy
   - 
   - 
   - 

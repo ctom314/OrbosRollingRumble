@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D playerRigidBody;
-    private float inputHorizontal;
-    private bool isAlive;
     private bool inAir;
     private float startRollSpeed;
 
@@ -19,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private int maxJumps;
     private int numJumps;
 
+    public bool isAlive;
     public float rollSpeed;
     public float maxRollSpeed;
     public float jumpForce;
@@ -57,14 +56,10 @@ public class PlayerController : MonoBehaviour
 
     private void movePlayer()
     {
-        // If the player is not in the air, allow the player to move left/right
         if (!inAir)
         {
-            // Get Left/Right input
-            inputHorizontal = Input.GetAxis("Horizontal");
-
             // Apply toque to the player to simulate rolling
-            playerRigidBody.AddTorque(-inputHorizontal * rollSpeed);
+            playerRigidBody.AddTorque(-1f * rollSpeed);
         }
     }
 
@@ -147,10 +142,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // TODO: Be able to kill player and end game in KillPlayer.cs
     public void KillPlayer()
     {
-        // End the game
+        gameObject.SetActive(false);
         isAlive = false;
     }
 }

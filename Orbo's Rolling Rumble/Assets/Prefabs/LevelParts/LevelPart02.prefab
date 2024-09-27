@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7771928664302788975}
   - component: {fileID: 8072474227716455448}
   - component: {fileID: 6997667206364142250}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Grounded
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4315480318615209248}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LevelPart02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6969673017547521881}
   - component: {fileID: 9136037043888078849}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Dirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,6 +256,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4315480318615209248}
     m_Modifications:
+    - target: {fileID: 2297458980776860117, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603606099556255807, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3334115993948325680, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.6674256
@@ -296,9 +304,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3520350504546633647, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076285595206724106, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6058153639769437014, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8175957166636202032, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
       propertyPath: m_Name
       value: Spikes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175957166636202032, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

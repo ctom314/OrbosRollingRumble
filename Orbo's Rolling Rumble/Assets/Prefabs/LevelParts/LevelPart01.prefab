@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2928149672131633677}
   - component: {fileID: 7124955346604379077}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Dirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 75835003324272990}
   - component: {fileID: 838093889276371942}
   - component: {fileID: 4937366388197740733}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Grounded
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5709151580890930060}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LevelPart01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

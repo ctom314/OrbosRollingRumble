@@ -24,4 +24,10 @@ public class GuiButtonHandler : MonoBehaviour
         // Load the main menu
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void playAgain()
+    {
+        // Load game
+        SceneManager.LoadScene("MainLevel");
+    }
 }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2785627244099749184}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LevelPart07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 827361699524061311}
   - component: {fileID: 6991437257839434195}
   - component: {fileID: 2220550395058954148}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Grounded
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2876435554751358723}
   - component: {fileID: 2593761393559383388}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Dirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,6 +301,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FEnemySpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 2634397195941324193, guid: 4b792c03221b8c9458ef006a274ea33a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2949724030454255089, guid: 4b792c03221b8c9458ef006a274ea33a, type: 3}
       propertyPath: spawnChance
       value: 0.5
@@ -366,6 +370,10 @@ PrefabInstance:
     - target: {fileID: 2634397195941324193, guid: 4b792c03221b8c9458ef006a274ea33a, type: 3}
       propertyPath: m_Name
       value: FEnemySpawner (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634397195941324193, guid: 4b792c03221b8c9458ef006a274ea33a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

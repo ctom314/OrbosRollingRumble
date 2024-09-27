@@ -133,4 +133,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec2c8e7d9d3bca3459883869aefbd986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 6050430488828848074, guid: 76448762fc4ba314d91883717d536ab2, type: 3}
+  playerSlowdownMultiplier: 0.9
+  maelstromSlowdownMultiplier: 0.5

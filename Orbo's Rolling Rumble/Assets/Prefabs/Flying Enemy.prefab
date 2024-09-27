@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8699777746704113972}
   - component: {fileID: 9075272635619496003}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wing_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 934632988246306313}
   - component: {fileID: 2671823390742632583}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wing_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 3143361496213622675}
   - component: {fileID: 8756698856640648997}
   - component: {fileID: 4852850251110178552}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Flying Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -238,8 +238,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startMovingDown: 0
-  speed: 3
-  offset: 3
+  speedRandomMin: 2
+  speedRandomMax: 5
+  offsetRandomMin: 2
+  offsetRandomMax: 4
 --- !u!1 &5512444213320224708
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +254,7 @@ GameObject:
   - component: {fileID: 3747098592490882362}
   - component: {fileID: 4250266554658860149}
   - component: {fileID: 2985353390719577045}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -373,3 +375,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9aea90c538befa4cae5319bcab10bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useTrigger: 0

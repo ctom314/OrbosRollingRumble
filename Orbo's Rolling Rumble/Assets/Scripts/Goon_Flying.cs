@@ -8,8 +8,10 @@ public class Goon_Flying : MonoBehaviour
     private float initPos_y;
 
     public bool startMovingDown;
-    public float speed;
-    public float offset;
+    public int speedRandomMin;
+    public int speedRandomMax;
+    public int offsetRandomMin;
+    public int offsetRandomMax;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +47,10 @@ public class Goon_Flying : MonoBehaviour
 
     private void movement()
     {
+        // Get random vars
+        float offset = Random.Range(offsetRandomMin, offsetRandomMax + 1);
+        float speed = Random.Range(speedRandomMin, speedRandomMax + 1);
+
         if (moveUp)
         {
             // Move the enemy up

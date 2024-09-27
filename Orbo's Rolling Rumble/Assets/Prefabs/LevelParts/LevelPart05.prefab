@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7179462841981526917}
   - component: {fileID: 2282676866864367691}
   - component: {fileID: 6718587433878587205}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Grounded
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2544645427878537180}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LevelPart05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6793215445211573078}
   - component: {fileID: 8202842014640021546}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Dirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,6 +303,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: YCoinSpawner (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6966819543534047632, guid: 9811888267d36d84e81cef527551426c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -321,6 +325,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2544645427878537180}
     m_Modifications:
+    - target: {fileID: 2297458980776860117, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603606099556255807, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3334115993948325680, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.85
@@ -361,9 +373,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3520350504546633647, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076285595206724106, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6058153639769437014, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8175957166636202032, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
       propertyPath: m_Name
       value: Spikes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175957166636202032, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -427,6 +455,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FEnemySpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 2634397195941324193, guid: 4b792c03221b8c9458ef006a274ea33a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -488,6 +520,10 @@ PrefabInstance:
     - target: {fileID: 6966819543534047632, guid: 9811888267d36d84e81cef527551426c, type: 3}
       propertyPath: m_Name
       value: YCoinSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966819543534047632, guid: 9811888267d36d84e81cef527551426c, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

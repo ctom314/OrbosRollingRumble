@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6791127144258651020}
   - component: {fileID: 5714352870883175293}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Dirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 5993144738580167313}
   - component: {fileID: 6263821338271098990}
   - component: {fileID: 6982136829337022475}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Grounded
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8055648867768099215}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LevelPart08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,6 +262,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8055648867768099215}
     m_Modifications:
+    - target: {fileID: 2297458980776860117, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603606099556255807, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3334115993948325680, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.818
@@ -302,9 +310,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3520350504546633647, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076285595206724106, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6058153639769437014, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8175957166636202032, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
       propertyPath: m_Name
       value: Spikes (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175957166636202032, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -368,6 +392,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PCoinSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 9205709411205503447, guid: f8e3d7533b72134469ed7293d88e358e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -386,6 +414,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8055648867768099215}
     m_Modifications:
+    - target: {fileID: 2297458980776860117, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603606099556255807, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3334115993948325680, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.6674256
@@ -426,9 +462,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3520350504546633647, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076285595206724106, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6058153639769437014, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8175957166636202032, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
       propertyPath: m_Name
       value: Spikes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175957166636202032, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -492,6 +544,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: YCoinSpawner (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6966819543534047632, guid: 9811888267d36d84e81cef527551426c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -554,6 +610,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: YCoinSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 6966819543534047632, guid: 9811888267d36d84e81cef527551426c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -572,6 +632,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8055648867768099215}
     m_Modifications:
+    - target: {fileID: 2297458980776860117, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603606099556255807, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3334115993948325680, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.48
@@ -612,9 +680,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3520350504546633647, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076285595206724106, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6058153639769437014, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8175957166636202032, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
       propertyPath: m_Name
       value: Spikes (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8175957166636202032, guid: 8cf3183047ca2a34d8b49c9c6b6aff72, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -677,6 +761,10 @@ PrefabInstance:
     - target: {fileID: 6627078089941370486, guid: ea099d2bbd739384fb6b0d48166f4db6, type: 3}
       propertyPath: m_Name
       value: clockSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 6627078089941370486, guid: ea099d2bbd739384fb6b0d48166f4db6, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

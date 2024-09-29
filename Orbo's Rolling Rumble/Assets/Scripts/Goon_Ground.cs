@@ -8,8 +8,8 @@ public class Goon_Ground : MonoBehaviour
 {
     private Rigidbody2D gRigidbody;
 
-    public float rollSpeed;
-    public float maxRollSpeed;
+    public float rollSpeed = 1;
+    public float maxRollSpeed = 5;
 
     // Start is called before the first frame update
     void Start()

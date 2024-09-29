@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private int maxJumps;
     private int numJumps;
 
+    public GameManager gameManager;
     public bool isAlive;
     public float rollSpeed;
     public float maxRollSpeed;
@@ -51,7 +52,6 @@ public class PlayerController : MonoBehaviour
         }
 
         RestrictPlayerY();
-        resetLevel();
     }
 
     private void movePlayer()
@@ -118,17 +118,6 @@ public class PlayerController : MonoBehaviour
         rollSpeed = startRollSpeed;
     }
 
-    // Debugging purposes
-    private void resetLevel()
-    {
-        // If the player presses the R key, restart the level
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            ResetSpeed();
-            SceneManager.LoadScene("MainLevel");
-        }
-    }
-
     private void RestrictPlayerY()
     {
         // Get where top of screen is
@@ -144,7 +133,10 @@ public class PlayerController : MonoBehaviour
 
     public void KillPlayer()
     {
-        gameObject.SetActive(false);
+        transform.parent.gameObject.SetActive(false);
         isAlive = false;
+
+        // Cancel powerup effect if player has one
+        gameManager.cancelSlowTime();
     }
 }

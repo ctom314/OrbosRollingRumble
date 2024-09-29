@@ -19,8 +19,9 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Spawn initial part
+        // Spawn initial parts
         nextSpawnX = initPartPosition.x;
+        SpawnLevelPart(0);
         SpawnLevelPart(0);
     }
 

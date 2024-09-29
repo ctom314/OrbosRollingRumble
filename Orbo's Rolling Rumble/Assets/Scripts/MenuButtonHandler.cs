@@ -22,10 +22,25 @@ public class MenuButtonHandler : MonoBehaviour
 
     public void loadGame()
     {
-        // Load the game
         SceneManager.LoadScene("MainLevel");
-
-        // Reset time scale if it was paused
         Time.timeScale = 1;
+    }
+
+    public void returnToMainMenu()
+    {
+        // Hide high scores menu
+        mm.highScoresMenu.SetActive(false);
+
+        // Show main menu
+        mm.mainMenu.SetActive(true);
+    }
+
+    public void loadHighScoresMenu()
+    {
+        // Hide main menu
+        mm.mainMenu.SetActive(false);
+
+        // Show high scores menu
+        mm.highScoresMenu.SetActive(true);
     }
 }

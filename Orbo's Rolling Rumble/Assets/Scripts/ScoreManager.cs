@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Collectables : MonoBehaviour
+public class ScoreManager : MonoBehaviour
 {
     public float score;
     public float money;
     public float scoreIncrementRate;
+
+    // UI
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreShadow;
     public TextMeshProUGUI moneyText;
+    public TextMeshProUGUI moneyShadow;
+
     public PlayerController playerController;
 
     // Start is called before the first frame update
@@ -46,11 +51,19 @@ public class Collectables : MonoBehaviour
     private void updateMoney()
     {     
         moneyText.text = "$" + money.ToString();
+        moneyShadow.text = "$" + money.ToString();
     }
 
     private void updateScore()
     {
+        // If score is over 999999, cap it
+        if (score > 999999)
+        {
+            score = 999999;
+        }
+
         // Ensure there are leading zeros
         scoreText.text = "Score: " + score.ToString("000000");
+        scoreShadow.text = "Score: " + score.ToString("000000");
     }
 }

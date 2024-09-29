@@ -27,7 +27,7 @@ public class Coin : MonoBehaviour
         // If the player collects a coin, add it to money count
         if (collision.CompareTag("Player"))
         {
-            sm.GetComponent<Collectables>().addMoney(coinValue);
+            sm.GetComponent<ScoreManager>().addMoney(coinValue);
             Destroy(gameObject);
         }
     }

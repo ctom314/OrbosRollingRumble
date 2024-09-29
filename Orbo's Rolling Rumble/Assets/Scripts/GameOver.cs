@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
     public GameObject gameOverScreen;
-    public GameObject player;
+    public GameObject playerParent;
+    public GameObject darkenScreen;
 
     // Score calculation needed vars
-    public Collectables scoreManager;
+    public ScoreManager scoreManager;
     public int pointsPerCoin;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI coinText;
@@ -22,7 +24,7 @@ public class GameOver : MonoBehaviour
     void Start()
     {
         // Get player controller
-        pc = player.GetComponent<PlayerController>();
+        pc = playerParent.GetComponentInChildren<PlayerController>();
     }
 
     // Update is called once per frame
@@ -30,9 +32,14 @@ public class GameOver : MonoBehaviour
     {
         if (!pc.isAlive)
         {
-            // Show game over screen
+            // Show game over screen (Darken screen)
             gameOverScreen.SetActive(true);
+            darkenScreen.gameObject.SetActive(true);
             scoreDisplay();
+
+            // Buttons
+            quickRestart();
+            mainMenuButton();
         }
     }
 
@@ -52,5 +59,24 @@ public class GameOver : MonoBehaviour
 
         // Display total score
         totalScoreText.text = "Total: " + totalScore.ToString("000000");
+    }
+
+    private void quickRestart()
+    {
+        // Press R to restart
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("MainLevel");
+        }
+    }
+
+    private void mainMenuButton()
+    {
+        // Press Q to return to main menu
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 }

@@ -19,10 +19,14 @@ public class SlowTimePowerup : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            // Increment powerup count
-            gmScript.incClockPowerup();
+            // Allow collecting powerup if not already at max capacity
+            if (gmScript.clockPowerupCount < gmScript.maxPowerupCount)
+            {
+                // Increment powerup count
+                gmScript.incClockPowerup();
 
-            Destroy(gameObject);
+                Destroy(gameObject);
+            }
         }
     }
 }

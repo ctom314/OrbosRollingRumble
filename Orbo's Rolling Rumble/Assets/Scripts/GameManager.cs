@@ -3,15 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     private bool isPaused = false;
+    public PlayerController playerController;
+    public int clockPowerupCount;
+    public int maxPowerupCount;
+
+    // UI: Pause Menu
     public GameObject pauseMenu;
     public GameObject pauseMenuTip;
+    public GameObject pauseMenuTipShadow;
+    public GameObject pauseDarkenBackground;
+
+    // UI: Powerup stuff
     public TextMeshProUGUI powerupCountText;
+    public TextMeshProUGUI powerupCountShadow;
     public GameObject timeSlowText;
-    public int clockPowerupCount;
+    public Image powerupHint;
 
     // Timer vars
     public int powerupDuration;
@@ -23,16 +35,24 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Buttons
         pauseButtonPress();
         powerupButtonPress();
-
-        // DEBUGGING PURPOSES
-        givePowerup();
 
         // If powerup is active, slow time
         if (timeSlowed && !isPaused)
         {
             slowTime();
+        }
+
+        // If player has at least one powerup, show hint
+        if (clockPowerupCount > 0)
+        {
+            powerupHint.gameObject.SetActive(true);
+        }
+        else
+        {
+            powerupHint.gameObject.SetActive(false);
         }
     }
 
@@ -56,8 +76,12 @@ public class GameManager : MonoBehaviour
 
     private void powerupButtonPress()
     {
-        // Activate when not already have a powerup active
-        if (clockPowerupCount > 0 && !timeSlowed && Input.GetKeyDown(KeyCode.F))
+        // Activate under certain conditions
+        if (playerController.isAlive &&
+            clockPowerupCount > 0 &&
+            !timeSlowed &&
+            !isPaused &&
+            Input.GetKeyDown(KeyCode.F))
         {
             // Use powerup if player has one
             clockPowerupCount -= 1;
@@ -69,7 +93,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void slowTime()
+        private void slowTime()
     {
         // Show time slow text
         timeSlowText.gameObject.SetActive(true);
@@ -77,16 +101,21 @@ public class GameManager : MonoBehaviour
         // Increment timer, ignore time scale
         time += Time.unscaledDeltaTime;
 
-        // If timer is up, reset time scale
+        // If timer is up, cancel slow time
         if (time >= powerupDuration)
         {
-            Time.timeScale = 1;
-            time = 0;
-            timeSlowed = false;
-
-            // Hide time slow text
-            timeSlowText.gameObject.SetActive(false);
+            cancelSlowTime();
         }
+    }
+
+    public void cancelSlowTime()
+    {
+        Time.timeScale = 1;
+        time = 0;
+        timeSlowed = false;
+
+        // Hide time slow text
+        timeSlowText.gameObject.SetActive(false);
     }
 
     public void pauseGame()
@@ -114,6 +143,10 @@ public class GameManager : MonoBehaviour
 
         // Hide the tip
         pauseMenuTip.SetActive(false);
+        pauseMenuTipShadow.SetActive(false);
+
+        // Darken the background
+        pauseDarkenBackground.gameObject.SetActive(true);
     }
 
     public void hidePauseMenu()
@@ -122,8 +155,12 @@ public class GameManager : MonoBehaviour
 
         // Show the tip
         pauseMenuTip.SetActive(true);
+        pauseMenuTipShadow.SetActive(true);
+
+        // Lighten the background
+        pauseDarkenBackground.gameObject.SetActive(false);
     }
-    
+
     public void incClockPowerup()
     {
         clockPowerupCount += 1;
@@ -132,17 +169,7 @@ public class GameManager : MonoBehaviour
 
     private void updatePowerupCount()
     {
-        powerupCountText.text = clockPowerupCount.ToString();
-    }
-
-
-    // DEBUGGING PURPOSES
-    private void givePowerup()
-    {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            clockPowerupCount = 99;
-            updatePowerupCount();
-        }
+        powerupCountText.text = clockPowerupCount.ToString() + "/" + maxPowerupCount.ToString();
+        powerupCountShadow.text = clockPowerupCount.ToString() + "/" + maxPowerupCount.ToString();
     }
 }

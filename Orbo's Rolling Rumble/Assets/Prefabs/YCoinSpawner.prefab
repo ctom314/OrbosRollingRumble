@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnObject: {fileID: 2603707336342117167, guid: 3a95cb35114bc54429d4106bd8673360, type: 3}
-  spawnChance: 1
+  spawnChance: 0.8

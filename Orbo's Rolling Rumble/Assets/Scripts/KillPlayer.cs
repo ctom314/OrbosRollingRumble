@@ -14,7 +14,7 @@ public class KillPlayer : MonoBehaviour
             if (collision.gameObject.tag == "Player")
             {
                 // Kill player
-                collision.gameObject.GetComponent<PlayerController>().KillPlayer();
+                collision.gameObject.GetComponentInChildren<PlayerController>().KillPlayer();
             }
         }
     }
@@ -26,7 +26,7 @@ public class KillPlayer : MonoBehaviour
             if (collision.gameObject.tag == "Player")
             {
                 // Kill player
-                collision.gameObject.GetComponent<PlayerController>().KillPlayer();
+                collision.gameObject.GetComponentInChildren<PlayerController>().KillPlayer();
             }
         }
     }

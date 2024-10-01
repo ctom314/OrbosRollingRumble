@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class ScoreMultiplier : MonoBehaviour
 {
-    public int coinValue;
+    public float addValue = 0.25f;
 
     // Score Manager
     private GameObject sm;
@@ -18,10 +18,9 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // If the player collects a coin, add it to money count
         if (collision.CompareTag("Player"))
         {
-            sm.GetComponent<ScoreManager>().addMoney(coinValue);
+            sm.GetComponent<ScoreManager>().addScoreMultiplier(addValue);
             Destroy(gameObject);
         }
     }

@@ -5,8 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    // Menu objects
     public GameObject mainMenu;
     public GameObject highScoresMenu;
+
+    // Info & Tips
+    public GameObject guideMenu;
+    public GameObject collectiblesInfo;
+    public GameObject tipsInfo;
 
     // Update is called once per frame
     void Update()

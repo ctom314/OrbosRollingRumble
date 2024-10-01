@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
     private void fallFaster()
     {
         // If the S key is pressed in air, fall faster
-        if (Input.GetKey(KeyCode.S) && inAir)
+        if (Input.GetKey(KeyCode.S))
         {
             playerRigidBody.gravityScale = 3;
         }

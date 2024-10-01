@@ -26,10 +26,16 @@ public class MenuButtonHandler : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    // Main menu options
     public void returnToMainMenu()
     {
-        // Hide high scores menu
+        // Reset Guide Menu
+        mm.collectiblesInfo.SetActive(true);
+        mm.tipsInfo.SetActive(false);
+
+        // Hide all menus if active
         mm.highScoresMenu.SetActive(false);
+        mm.guideMenu.SetActive(false);
 
         // Show main menu
         mm.mainMenu.SetActive(true);
@@ -42,5 +48,33 @@ public class MenuButtonHandler : MonoBehaviour
 
         // Show high scores menu
         mm.highScoresMenu.SetActive(true);
+    }
+
+    // Info & Tips Menu
+    public void loadTipsMenu()
+    {
+        // Hide main menu
+        mm.mainMenu.SetActive(false);
+
+        // Show tips menu, collectibles info
+        mm.guideMenu.SetActive(true);
+    }
+
+    public void showCollectiblesInfo()
+    {
+        // Hide tips info
+        mm.tipsInfo.SetActive(false);
+
+        // Show collectibles info
+        mm.collectiblesInfo.SetActive(true);
+    }
+
+    public void showTipsInfo()
+    {
+        // Hide collectibles info
+        mm.collectiblesInfo.SetActive(false);
+
+        // Show tips info
+        mm.tipsInfo.SetActive(true);
     }
 }

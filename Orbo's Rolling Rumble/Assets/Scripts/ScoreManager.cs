@@ -9,11 +9,20 @@ public class ScoreManager : MonoBehaviour
     public float money;
     public float scoreIncrementRate;
 
+    // Multipliers
+    public float scoreMultiplier = 1f;
+    public float moneyMultiplier = 1f;
+
     // UI
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI scoreShadow;
+    public TextMeshProUGUI scoreMultiplierText;
+    public TextMeshProUGUI scoreMultiplierShadow;
+
     public TextMeshProUGUI moneyText;
     public TextMeshProUGUI moneyShadow;
+    public TextMeshProUGUI moneyMultiplierText;
+    public TextMeshProUGUI moneyMultiplierShadow;
 
     public PlayerController playerController;
 
@@ -37,21 +46,34 @@ public class ScoreManager : MonoBehaviour
     private void incrementScore()
     {
         // Increment score per second
-        score += scoreIncrementRate * Time.deltaTime;
+        score += (scoreIncrementRate * scoreMultiplier) * Time.deltaTime;
         updateScore();
     }
 
     public void addMoney(int m)
     {
         // Take the coin value and add it to money
-        money += m;
+        money += m * moneyMultiplier;
         updateMoney();
     }
 
     private void updateMoney()
-    {     
-        moneyText.text = "$" + money.ToString();
-        moneyShadow.text = "$" + money.ToString();
+    {
+        moneyText.text = "$" + money.ToString("0.00");
+        moneyShadow.text = "$" + money.ToString("0.00");
+
+        // If multiplier is greater than 1, show it
+        if (moneyMultiplier > 1)
+        {
+            // Calculate percentage
+            float moneyPercentage = (moneyMultiplier - 1) * 100;
+
+            moneyMultiplierText.gameObject.SetActive(true);
+            moneyMultiplierShadow.gameObject.SetActive(true);
+
+            moneyMultiplierText.text = "+" + moneyPercentage.ToString() + "%";
+            moneyMultiplierShadow.text = "+" + moneyPercentage.ToString() + "%";
+        }
     }
 
     private void updateScore()
@@ -65,5 +87,31 @@ public class ScoreManager : MonoBehaviour
         // Ensure there are leading zeros
         scoreText.text = "Score: " + score.ToString("000000");
         scoreShadow.text = "Score: " + score.ToString("000000");
+
+        // If multiplier is greater than 1, show it
+        if (scoreMultiplier > 1)
+        {
+            // Calculate percentage
+            float scorePercentage = (scoreMultiplier - 1) * 100;
+
+            scoreMultiplierText.gameObject.SetActive(true);
+            scoreMultiplierShadow.gameObject.SetActive(true);
+
+            scoreMultiplierText.text = "+" + scorePercentage.ToString() + "%";
+            scoreMultiplierShadow.text = "+" + scorePercentage.ToString() + "%";
+        }
+    }
+
+    // Multipliers
+    public void addMoneyMultiplier(float m)
+    {
+        moneyMultiplier += m;
+        updateMoney();
+    }
+
+    public void addScoreMultiplier(float m)
+    {
+        scoreMultiplier += m;
+        updateScore();
     }
 }

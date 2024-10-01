@@ -9,6 +9,7 @@ public class GameOver : MonoBehaviour
     public GameObject gameOverScreen;
     public GameObject playerParent;
     public GameObject darkenScreen;
+    public GameObject maelstrom;
 
     // Score calculation needed vars
     public ScoreManager scoreManager;
@@ -32,6 +33,9 @@ public class GameOver : MonoBehaviour
     {
         if (!pc.isAlive)
         {
+            // Unload Maelstrom
+            maelstrom.SetActive(false);
+
             // Show game over screen (Darken screen)
             gameOverScreen.SetActive(true);
             darkenScreen.gameObject.SetActive(true);
@@ -51,7 +55,7 @@ public class GameOver : MonoBehaviour
 
         // Display score and coin count
         scoreText.text = "Score: " + score.ToString("000000");
-        coinText.text = "$" + money.ToString();
+        coinText.text = "$" + money.ToString("0.00");
         scoreRatioText.text = "x" + pointsPerCoin;
 
         // Calculate total score

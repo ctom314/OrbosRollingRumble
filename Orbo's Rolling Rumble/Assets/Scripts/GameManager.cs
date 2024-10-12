@@ -15,15 +15,15 @@ public class GameManager : MonoBehaviour
 
     // UI: Pause Menu
     public GameObject pauseMenu;
-    public GameObject pauseMenuTip;
-    public GameObject pauseMenuTipShadow;
+    public GameObject pauseTip;
     public GameObject pauseDarkenBackground;
 
     // UI: Powerup stuff
     public TextMeshProUGUI powerupCountText;
     public TextMeshProUGUI powerupCountShadow;
-    public GameObject timeSlowText;
+    public GameObject timeSlowUI;
     public Image powerupHint;
+    public Slider timeLeftSlider;
 
     // Timer vars
     public int powerupDuration;
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void pauseButtonPress()
+        public void pauseButtonPress()
     {
         // if P is pressed, pause or resume the game
         if (Input.GetKeyDown(KeyCode.P))
@@ -96,10 +96,13 @@ public class GameManager : MonoBehaviour
         private void slowTime()
     {
         // Show time slow text
-        timeSlowText.gameObject.SetActive(true);
+        timeSlowUI.gameObject.SetActive(true);
 
         // Increment timer, ignore time scale
         time += Time.unscaledDeltaTime;
+
+        // Update slider
+        timeLeftSlider.value = powerupDuration - time;
 
         // If timer is up, cancel slow time
         if (time >= powerupDuration)
@@ -115,7 +118,10 @@ public class GameManager : MonoBehaviour
         timeSlowed = false;
 
         // Hide time slow text
-        timeSlowText.gameObject.SetActive(false);
+        timeSlowUI.gameObject.SetActive(false);
+
+        // Reset slider
+        timeLeftSlider.value = powerupDuration;
     }
 
     public void pauseGame()
@@ -142,8 +148,7 @@ public class GameManager : MonoBehaviour
         pauseMenu.SetActive(true);
 
         // Hide the tip
-        pauseMenuTip.SetActive(false);
-        pauseMenuTipShadow.SetActive(false);
+        pauseTip.SetActive(false);
 
         // Darken the background
         pauseDarkenBackground.gameObject.SetActive(true);
@@ -154,8 +159,7 @@ public class GameManager : MonoBehaviour
         pauseMenu.SetActive(false);
 
         // Show the tip
-        pauseMenuTip.SetActive(true);
-        pauseMenuTipShadow.SetActive(true);
+        pauseTip.SetActive(true);
 
         // Lighten the background
         pauseDarkenBackground.gameObject.SetActive(false);

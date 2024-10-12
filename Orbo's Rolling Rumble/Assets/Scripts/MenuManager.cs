@@ -20,6 +20,9 @@ public class MenuManager : MonoBehaviour
         // Buttons
         startGame();
         quitGame();
+
+        // DEBUG: Clear highscores
+        clearHighscores();
     }
 
     private void startGame()
@@ -39,6 +42,20 @@ public class MenuManager : MonoBehaviour
         {
             // Only works in a built game
             Application.Quit();
+        }
+    }
+
+    // DELETE BEFORE BUILD
+    private void clearHighscores()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                PlayerPrefs.DeleteKey("Highscore" + i);
+            }
+
+            PlayerPrefs.Save();
         }
     }
 }

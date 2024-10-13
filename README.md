@@ -36,10 +36,16 @@ Other useful controls will be shown next to the respective buttons. Mouse can al
 
 ## <img src="https://github.com/user-attachments/assets/e2d3352f-dc78-4671-8022-b39aad2a755f" width=176 />     <img src="https://github.com/user-attachments/assets/1a806b6f-4dd0-4767-8bb7-00df0ea9ee83" width=64 />
 
-This game is licensed under the [GNU Affero General Public License v3.0](./LICENSE) (AGPLv3).
+This project is licensed under the GNU General Public License v3.0. You are free to:
 
-You are free to:
-- Use, modify, and distribute this game under the terms of the AGPLv3.
-- If you make any modifications to the game and host it as a network service (e.g., multiplayer or web-based), you must make your modified source code available to users under the same license.
+- **Use** the software for any purpose.
+- **Modify** the software and distribute modifications, under the same GPLv3 license.
+- **Share** the software and its source code with others.
 
-For more details, see the full [LICENSE](./LICENSE) file.
+However, when you distribute copies or modified versions of the software, you **must**:
+
+- Include the original or modified source code.
+- Retain the GPLv3 license with all copies and modifications.
+
+For full details, see the [LICENSE](./LICENSE) file or visit the [GNU GPL v3.0 website](https://www.gnu.org/licenses/gpl-3.0.html).
+

@@ -19,12 +19,8 @@ Can you get a high score?
 
 
 ## <img src="https://github.com/user-attachments/assets/6b605794-a751-4aba-8916-a2d01260d642" width=206 />
-- **S**       -   Dive
-- **Space**   -   Jump
+![HW01_GitHubControlsList](https://github.com/user-attachments/assets/f533e289-d4eb-485c-a3b7-66667609d79a)
 
-Other useful controls will be shown next to the respective buttons. Mouse can also be used for buttons*.
-
-<sup>* Mouse support for player movement not supported.</sup>
 
 <br></br>
  

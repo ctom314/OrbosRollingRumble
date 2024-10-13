@@ -10,7 +10,7 @@ The (probably not) first <b>Endless Roller</b> Game!
 
 **Orbo**, a naive orange ball, had a run-in with the elusive *Maelstrom*, the don of a mafia group known as "*The Bloks*". Orbo called him "square", and aggravated the Maelstrom. Now, he's after Orbo's life!
 
-Roll away in this endless runner game, <ins>**Orbo's Rolling Rumble**</ins>! Avoid the Maelstrom's Goons, collect coins, multipliers, and even a helpful powerup! 
+Roll away in this endless roller game, <ins>**Orbo's Rolling Rumble**</ins>! Avoid the Maelstrom's Goons and other hazards, collect coins, multipliers, and even a helpful powerup! 
 <br></br>
 Can you get a high score?
 

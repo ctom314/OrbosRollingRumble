@@ -21,14 +21,17 @@ Can you get a high score?
 ## <img src="https://github.com/user-attachments/assets/6b605794-a751-4aba-8916-a2d01260d642" width=206 />
 ![HW01_GitHubControlsList](https://github.com/user-attachments/assets/f533e289-d4eb-485c-a3b7-66667609d79a)
 
+Other useful controls will be shown next to the respective buttons. Mouse can also be used for buttons*.
 
-<br></br>
+<sup>* Mouse support for player movement not supported.</sup>
+
+
  
 ## <img src="https://github.com/user-attachments/assets/bd04d2e9-1c5e-4979-b327-29d5f95b8ec6" width=176 />
 
 [![View the Demo on YouTube](https://img.youtube.com/vi/j4JIMepwgpI/0.jpg)](https://www.youtube.com/watch?v=j4JIMepwgpI)
 
-<br></br>
+
 
 ## <img src="https://github.com/user-attachments/assets/e2d3352f-dc78-4671-8022-b39aad2a755f" width=176 />
 

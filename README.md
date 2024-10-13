@@ -8,7 +8,7 @@ The (probably not) first <b>Endless Roller</b> Game!
 ## <img src="https://github.com/user-attachments/assets/221c1f5c-a1ef-445e-8164-6542306db03d" width=256 />     <img src="https://github.com/user-attachments/assets/098c5d32-ff33-4df3-aed8-8e4addaecc52" />
 
 
-**Orbo**, a naive orange ball, had a run-in with the elusive *Maelstrom*, the don of a mafia group known as "*The Bloks*". Orbo called him "spuare", and aggravated the Maelstrom. Now, he's after Orbo's life!
+**Orbo**, a naive orange ball, had a run-in with the elusive *Maelstrom*, the don of a mafia group known as "*The Bloks*". Orbo called him "square", and aggravated the Maelstrom. Now, he's after Orbo's life!
 
 Roll away in this endless runner game, <ins>**Orbo's Rolling Rumble**</ins>! Avoid the Maelstrom's Goons, collect coins, multipliers, and even a helpful powerup! 
 <br></br>

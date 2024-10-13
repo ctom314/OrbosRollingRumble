@@ -18,6 +18,8 @@ public class GameOver : MonoBehaviour
     // Score calculation needed vars
     public ScoreManager scoreManager;
     public int pointsPerCoin;
+
+    // UI
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI coinText;
     public TextMeshProUGUI scoreRatioText;
@@ -30,9 +32,16 @@ public class GameOver : MonoBehaviour
     // Top 5 Highscores colors corresponding to their position
     private List<Color32> highscoreColors = new List<Color32>()
     {
+        // 1st: Gold
         new Color32(255, 220, 0, 255),
+
+        // 2nd: Silver
         new Color32(204, 204, 204, 255),
+
+        // 3rd: Bronze (Brownish color)
         new Color32(226, 102, 0, 255),
+
+        // 4th and 5th: Gray (Darker than silver)
         new Color32(156, 156, 156, 255),
         new Color32(156, 156, 156, 255),
     };
@@ -43,7 +52,6 @@ public class GameOver : MonoBehaviour
         highscoreCalculated = false;
         displayUpdated = false;
 
-        // Get player controller
         pc = playerParent.GetComponentInChildren<PlayerController>();
     }
 
@@ -55,7 +63,7 @@ public class GameOver : MonoBehaviour
             // Unload Maelstrom
             maelstrom.SetActive(false);
 
-            // Show game over screen (Darken screen) and display score
+            // Show game over screen, darken screen, and display score
             if (!displayUpdated)
             {
                 gameOverScreen.SetActive(true);
@@ -68,10 +76,11 @@ public class GameOver : MonoBehaviour
             // Calculate highscores
             if (!highscoreCalculated)
             {
+                // Calculate total score and update highscores
                 float totalScore = calculateTotalScore();
                 updateHighscores(totalScore);
 
-                // Get highscore position
+                // Get highscore position for total score display
                 int scorePos = calculateHighScorePosition(totalScore);
 
                 // Change Total Score text based on highscore position
@@ -122,7 +131,6 @@ public class GameOver : MonoBehaviour
 
     private void quickRestart()
     {
-        // Press R to restart
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene("MainLevel");
@@ -131,7 +139,6 @@ public class GameOver : MonoBehaviour
 
     private void mainMenuButton()
     {
-        // Press Q to return to main menu
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Time.timeScale = 1;
@@ -162,7 +169,7 @@ public class GameOver : MonoBehaviour
                     highScores[j] = highScores[j - 1];
                 }
 
-                // Insert new score, round
+                // Insert new score. Round score since highscore is rounded
                 highScores[i] = (int)Math.Round((double)score);
                 break;
             }

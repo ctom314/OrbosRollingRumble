@@ -23,10 +23,13 @@ public class PlayerController : MonoBehaviour
     public float maxRollSpeed;
     public float jumpForce;
 
+    // Time vars for resuming game to prevent jumping when resuming
+    public float jumpDelay = 0.05f;
+    public float timeSinceResume = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        // Get player rigidbody
         playerRigidBody = GetComponent<Rigidbody2D>();
 
         isAlive = true;
@@ -35,7 +38,7 @@ public class PlayerController : MonoBehaviour
         maxJumps = 1;
         numJumps = 1;
 
-        // Ensure roll speed is set properly
+        // Set initial roll speed
         startRollSpeed = rollSpeed;
     }
 
@@ -52,6 +55,11 @@ public class PlayerController : MonoBehaviour
         }
 
         RestrictPlayerY();
+
+        if (isAlive)
+        {
+            timeSinceResume += Time.deltaTime;
+        }
     }
 
     private void movePlayer()
@@ -68,7 +76,7 @@ public class PlayerController : MonoBehaviour
         // Check if the player's current speed exceeds the maximum allowed speed
         if (Mathf.Abs(playerRigidBody.velocity.x) > maxRollSpeed)
         {
-            // Scale the velocity to maintain it at the maximum speed
+            // Scale velocity to maintain it at maximum speed
             playerRigidBody.velocity = new Vector2(Mathf.Sign(playerRigidBody.velocity.x) * maxRollSpeed, playerRigidBody.velocity.y);
         }
     }
@@ -76,16 +84,14 @@ public class PlayerController : MonoBehaviour
     private void jump()
     {
         // If the player presses the space bar, jump if the player can jump
-        if (Input.GetKeyDown(KeyCode.Space) && numJumps <= maxJumps)
+        // Ensure player doesnt jump upon resuming game
+        if (Input.GetKeyDown(KeyCode.Space) && numJumps <= maxJumps && timeSinceResume > jumpDelay)
         {
-            // Move the player up
+            // Move player up
             playerRigidBody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
 
-            // Increment the number of jumps
             numJumps++;
-
             inAir = true;
-
         }
     }
 
@@ -102,9 +108,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-        private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        // If the player collides with the ground, reset the number of jumps
+        // If player collides with ground, reset number of jumps
         if (collision.gameObject.CompareTag("Grounded"))
         {
             numJumps = 1;
@@ -126,7 +132,7 @@ public class PlayerController : MonoBehaviour
         // If player's position exceeds that, prevent player from going above
         if (transform.position.y > topOfScreen.y)
         {
-            // Bounce the player back down
+            // Bounce player back down
             playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x, -Mathf.Abs(playerRigidBody.velocity.y));
         }
     }

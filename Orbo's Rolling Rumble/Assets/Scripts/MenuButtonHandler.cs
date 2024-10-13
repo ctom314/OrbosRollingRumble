@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 public class MenuButtonHandler : MonoBehaviour
 {
     private MenuManager mm;
-    
+    private HighscoresManager hm;
+
     // Start is called before the first frame update
     void Start()
     {
-        // Get MenuManager
         mm = GetComponent<MenuManager>();
+        hm = GetComponent<HighscoresManager>();
     }
 
     public void quitGame()
@@ -29,6 +30,14 @@ public class MenuButtonHandler : MonoBehaviour
     // Main menu options
     public void returnToMainMenu()
     {
+        mm.mainMenuActive = true;
+        mm.tipsMenuActive = false;
+
+        // Reset Highscore clear logic
+        hm.warning.SetActive(false);
+        hm.scoreClearButtonPresses = 0;
+        hm.clearButton.interactable = true;
+
         // Reset Guide Menu
         mm.collectiblesInfo.SetActive(true);
         mm.tipsInfo.SetActive(false);
@@ -43,6 +52,8 @@ public class MenuButtonHandler : MonoBehaviour
 
     public void loadHighScoresMenu()
     {
+        mm.mainMenuActive = false;
+
         // Hide main menu
         mm.mainMenu.SetActive(false);
 
@@ -53,28 +64,42 @@ public class MenuButtonHandler : MonoBehaviour
     // Info & Tips Menu
     public void loadTipsMenu()
     {
+        mm.mainMenuActive = false;
+        mm.tipsMenuActive = true;
+
         // Hide main menu
         mm.mainMenu.SetActive(false);
 
-        // Show tips menu, collectibles info
+        // Show tips menu, default to collectibles page
         mm.guideMenu.SetActive(true);
     }
 
-    public void showCollectiblesInfo()
+    public void showCollectiblesPage()
     {
-        // Hide tips info
+        mm.mainMenuActive = false;
+        mm.tipsMenuActive = true;
+
+        // Hide tips page
         mm.tipsInfo.SetActive(false);
 
-        // Show collectibles info
+        // Show collectibles page
         mm.collectiblesInfo.SetActive(true);
     }
 
-    public void showTipsInfo()
+    public void showTipsPage()
     {
-        // Hide collectibles info
+        mm.mainMenuActive = false;
+        mm.tipsMenuActive = true;
+
+        // Hide collectibles page
         mm.collectiblesInfo.SetActive(false);
 
-        // Show tips info
+        // Show tips page
         mm.tipsInfo.SetActive(true);
+    }
+
+    public void clearHighscores()
+    {
+        hm.clearHighscores();
     }
 }

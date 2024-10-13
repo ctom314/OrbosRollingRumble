@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     private bool isPaused = false;
+
     public PlayerController playerController;
     public int clockPowerupCount;
     public int maxPowerupCount;
@@ -32,12 +33,20 @@ public class GameManager : MonoBehaviour
     private bool timeSlowed = false;
     private float prevTimeScale;
 
+    // Pause menu time vars to ensure pressing Q does not pause and quit game at the same time
+    private float pausePressTime = 0f;
+    private float quitDelay = 0.05f;
+
     // Update is called once per frame
     void Update()
     {
         // Buttons
-        pauseButtonPress();
         powerupButtonPress();
+
+        if (playerController.isAlive)
+        {
+            pauseMenuButtons();
+        }
 
         // If powerup is active, slow time
         if (timeSlowed && !isPaused)
@@ -56,21 +65,31 @@ public class GameManager : MonoBehaviour
         }
     }
 
-        public void pauseButtonPress()
+    public void pauseMenuButtons()
     {
-        // if P is pressed, pause or resume the game
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (isPaused)
+            if (!isPaused)
             {
-                resumeGame();
-                isPaused = false;
-            }
-            else
-            {
+                // Pause game
                 pauseGame();
                 isPaused = true;
+                pausePressTime = Time.unscaledTime;
             }
+
+            // Quit game after delay
+            else if (isPaused && (Time.unscaledTime - pausePressTime) > quitDelay)
+            {
+                Time.timeScale = 1;
+                SceneManager.LoadScene("MainMenu");
+            }
+        }
+
+        if (isPaused && Input.GetKeyDown(KeyCode.Space))
+        {
+            // Resume game
+            resumeGame();
+            isPaused = false;
         }
     }
 
@@ -93,7 +112,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-        private void slowTime()
+    private void slowTime()
     {
         // Show time slow text
         timeSlowUI.gameObject.SetActive(true);
@@ -141,6 +160,9 @@ public class GameManager : MonoBehaviour
 
         // Resume game
         hidePauseMenu();
+
+        // Reset jump delay
+        playerController.timeSinceResume = 0;
     }
 
     public void showPauseMenu()

@@ -12,13 +12,12 @@ public class Coin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Get Score Manager
         sm = GameObject.FindGameObjectWithTag("ScoreManager");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // If the player collects a coin, add it to money count
+        // Add money upon collecting coin
         if (collision.CompareTag("Player"))
         {
             sm.GetComponent<ScoreManager>().addMoney(coinValue);

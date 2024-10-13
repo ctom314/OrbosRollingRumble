@@ -16,7 +16,7 @@ public class MaelstromMovement : MonoBehaviour
         // Body follows X position of wheels
         transform.position = new Vector3(midpoint.x, transform.position.y, transform.position.z);
 
-        // Prevent rotation
+        // Prevent rotation of body
         transform.rotation = Quaternion.identity;
     }
 }

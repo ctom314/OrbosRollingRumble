@@ -12,13 +12,6 @@ public class FlyingSpawner : MonoBehaviour
     private int startDirection;
     private bool triedToSpawn = false;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -29,7 +22,7 @@ public class FlyingSpawner : MonoBehaviour
             // Randomize starting direction (up, down)
             startDirection = Random.Range(1, 3);
 
-            // Object has chance to spawn
+            // Spawn chance
             if (chance <= spawnChance)
             {
                 setDirection();

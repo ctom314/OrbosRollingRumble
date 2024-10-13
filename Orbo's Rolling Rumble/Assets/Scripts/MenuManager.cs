@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,20 +15,50 @@ public class MenuManager : MonoBehaviour
     public GameObject collectiblesInfo;
     public GameObject tipsInfo;
 
+    // Menu Bools
+    public bool mainMenuActive = true;
+    public bool tipsMenuActive = false;
+
+    private MenuButtonHandler mbh;
+    private HighscoresManager hm;
+
+    // Timer vars for pressing Q to return to main menu, while preventing quitting at the same time
+    private float menuChangeTime = 0f;
+    private float quitDelay = 0.05f;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        mbh = GetComponent<MenuButtonHandler>();
+        hm = GetComponent<HighscoresManager>();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        // Buttons
-        startGame();
-        quitGame();
-
-        // DEBUG: Clear highscores
-        clearHighscores();
+        // Menu Buttons
+        if (mainMenuActive && !tipsMenuActive)
+        {
+            // Main menu buttons
+            startGame();
+            quitGame();
+            highScoresMenuButton();
+            tipsMenuButton();
+        }
+        else if (!mainMenuActive && tipsMenuActive)
+        {
+            // Toggle info menu pages
+            toggleInfoPages();
+            backToMainMenu();
+        }
+        else if (!mainMenuActive && !tipsMenuActive)
+        {
+            backToMainMenu();
+        }
     }
 
     private void startGame()
     {
-        // Press Space to start game
         if (Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene("MainLevel");
@@ -37,25 +68,52 @@ public class MenuManager : MonoBehaviour
 
     private void quitGame()
     {
-        // Press Q to quit game
-        if (Input.GetKeyDown(KeyCode.Q))
+        // Ensure quitting is not possible immediately after returning to main menu
+        if (Input.GetKeyDown(KeyCode.Q) && (Time.unscaledTime - menuChangeTime) > quitDelay)
         {
-            // Only works in a built game
-            Application.Quit();
+            mbh.quitGame();
         }
     }
 
-    // DELETE BEFORE BUILD
-    private void clearHighscores()
+    private void highScoresMenuButton()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.X))
         {
-            for (int i = 0; i < 5; i++)
-            {
-                PlayerPrefs.DeleteKey("Highscore" + i);
-            }
+            mbh.loadHighScoresMenu();
+        }
+    }
 
-            PlayerPrefs.Save();
+    private void tipsMenuButton()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            tipsMenuActive = true;
+
+            mbh.loadTipsMenu();
+        }
+    }
+
+    private void toggleInfoPages()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (collectiblesInfo.activeSelf)
+            {
+                mbh.showTipsPage();
+            }
+            else
+            {
+                mbh.showCollectiblesPage();
+            }
+        }
+    }
+
+    private void backToMainMenu()
+    {
+        if (hm.canGoBack && Input.GetKeyDown(KeyCode.Q))
+        {
+            mbh.returnToMainMenu();
+            menuChangeTime = Time.unscaledTime;
         }
     }
 }

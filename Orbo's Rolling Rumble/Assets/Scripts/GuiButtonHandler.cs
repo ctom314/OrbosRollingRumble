@@ -10,7 +10,6 @@ public class GuiButtonHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Only works when script is attached to the same object
         gm = GetComponent<GameManager>();
     }
 
@@ -21,7 +20,7 @@ public class GuiButtonHandler : MonoBehaviour
 
     public void returnToMainMenu()
     {
-        // Load the main menu
+        // Load main menu
         SceneManager.LoadScene("MainMenu");
     }
 

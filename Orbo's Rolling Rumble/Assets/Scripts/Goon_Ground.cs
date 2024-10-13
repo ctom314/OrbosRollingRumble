@@ -33,6 +33,7 @@ public class Goon_Ground : MonoBehaviour
     {
         // Check if the enemy is on the screen
         Vector2 screenPos = Camera.main.WorldToViewportPoint(transform.position);
+
         return (screenPos.x > 0 && screenPos.x < 1 && screenPos.y > 0 && screenPos.y < 1);
     }
 
@@ -42,7 +43,6 @@ public class Goon_Ground : MonoBehaviour
         gRigidbody.AddTorque(rollSpeed);
     }
 
-    // Same as player, but for enemy
     private void LimitRollSpeed()
     {
         if (Mathf.Abs(gRigidbody.velocity.x) > maxRollSpeed)

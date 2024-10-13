@@ -45,14 +45,14 @@ public class ScoreManager : MonoBehaviour
 
     private void incrementScore()
     {
-        // Increment score per second
+        // Increment score
         score += (scoreIncrementRate * scoreMultiplier) * Time.deltaTime;
         updateScore();
     }
 
     public void addMoney(int m)
     {
-        // Take the coin value and add it to money
+        // Add coin value to money with multiplier
         money += m * moneyMultiplier;
         updateMoney();
     }
@@ -78,13 +78,12 @@ public class ScoreManager : MonoBehaviour
 
     private void updateScore()
     {
-        // If score is over 999999, cap it
+        // Cap score if over 6 digits
         if (score > 999999)
         {
             score = 999999;
         }
 
-        // Ensure there are leading zeros
         scoreText.text = "Score: " + score.ToString("000000");
         scoreShadow.text = "Score: " + score.ToString("000000");
 

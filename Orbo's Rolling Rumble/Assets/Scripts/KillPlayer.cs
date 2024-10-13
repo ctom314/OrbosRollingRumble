@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class KillPlayer : MonoBehaviour
 {
+    // Whether the object uses a trigger to kill the player or not
     public bool useTrigger;
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -21,7 +21,7 @@ public class RotationController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Sync position with body object
+        // Sync position with body
         transform.position = bodyObject.position;
 
         // Increase rotation speed over time

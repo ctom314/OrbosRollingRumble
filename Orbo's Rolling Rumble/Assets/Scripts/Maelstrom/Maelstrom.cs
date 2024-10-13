@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Maelstrom : MonoBehaviour
 { 
-    // Values for movement and more
+    // Values for movement.
     public float rollSpeed;
     public float maxRollSpeed;
 }

@@ -16,7 +16,7 @@ public class Goon_Flying : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // set moveUp based on starting direction
+        // Determine starting direction
         if (startMovingDown)
         {
             moveUp = false;
